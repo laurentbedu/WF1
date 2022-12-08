@@ -9,7 +9,6 @@ namespace CountDown
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
-
             for (int i = 9; i >= 0; i--)
             {
                 await Task.Delay(1000);
@@ -17,6 +16,11 @@ namespace CountDown
             }
             label1.ForeColor = System.Drawing.Color.Red;
             //Application.SetSuspendState(PowerState.Hibernate, true, true);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
