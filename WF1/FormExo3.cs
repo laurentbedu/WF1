@@ -58,16 +58,24 @@
             newTextBox.Location = new System.Drawing.Point(x, y);
             newTextBox.Size = new System.Drawing.Size(33, 27);
             newTextBox.TabIndex = index;
-
             panelNotes.Controls.Add(newTextBox);
             newTextBox.TextChanged += NewTextBox_TextChanged;
         }
 
         private void NewTextBox_TextChanged(object? sender, EventArgs e)
         {
-            int index = panelNotes.Controls.IndexOf((TextBox)sender);
+            int index = panelNotes.Controls.IndexOf(sender as TextBox);
             TextBox currentTextBox = (TextBox)panelNotes.Controls[index];
             string textBoxText = currentTextBox.Text;
+            double note;
+            if (!double.TryParse(textBoxText, out note))
+            {
+                currentTextBox.ForeColor = Color.Red;
+            }
+            else
+            {
+                currentTextBox.ForeColor = Color.Black;
+            }
             bool bp = true;
         }
 
